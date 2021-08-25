@@ -25,6 +25,8 @@ var matterBall;
 
 var border1, border2, border3, border4;
 
+var upButton, downButton, leftButton, rightButton; 
+
 function preload(){}
 
 function setup()
