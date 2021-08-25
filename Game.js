@@ -30,12 +30,27 @@ class Game
         player.getCount();
       }
 
-      form = new Form()
+      form = new Form();
       form.display();
     }
     mBall1 = new Ball(285,300,20);
     mBall2 = new Ball(315,300,20);
     mBalls = [mBall1.body, mBall2.body];
+
+    downButton = createButton("down");
+    upButton = createButton("up");
+    leftButton = createButton("left");
+    rightButton = createButton("right");
+
+    upButton.hide();
+    downButton.hide();
+    leftButton.hide();
+    rightButton.hide();
+
+    upButton.position( displayWidth/2+135, displayHeight/2-190);
+    downButton.position( displayWidth/2+127 , displayHeight/2-50);
+    leftButton.position( displayWidth/2 +60 , displayHeight/2 -120);
+    rightButton.position( displayWidth/2+200, displayHeight/2 -120);
 
     border1 = new Border(0,300,100,600);
     border2 = new Border(600,300,100,600);
@@ -50,6 +65,11 @@ class Game
     text("Game Start", 120, 100);
     Player.getPlayerInfo();
     player.getCarsAtEnd();
+
+    upButton.show();
+    downButton.show();
+    leftButton.show();
+    rightButton.show();
 
     if(allPlayers !== undefined)
     {
@@ -70,8 +90,6 @@ class Game
         
         Matter.Body.applyForce(mBalls[index-1], mBalls[index-1].position, {x: allPlayers[plr].velocityX, y: allPlayers[plr].velocityY });
         Matter.Body.applyForce(mBalls[index-1], mBalls[index-1].position, {x: allPlayers[plr].velocityX, y: allPlayers[plr].velocityY });
-
-        
 
         if(index === player.index)
         {
@@ -126,7 +144,41 @@ class Game
     {
       player.velocityX = 0;
     }    
- 
+
+
+    upButton.mousePressed(()=>{
+      if(player.index !== null)
+      {
+        player.velocityY -=0.001;
+        player.update();
+      }
+    });
+
+    downButton.mousePressed(()=>{
+      if(player.index !== null)
+      {
+        player.velocityY +=0.001;
+        player.update();
+      }
+    });
+
+    leftButton.mousePressed(()=>{
+      if(player.index !== null)
+      {
+        player.velocityX -=0.001;
+        player.update();
+      }
+    });
+
+    rightButton.mousePressed(()=>{
+      if(player.index !== null)
+      {
+        player.velocityX +=0.001;
+        player.update();
+      }
+    });
+    
+
     if(player.distanceY > 3260)
     {
       gameState = 2;
@@ -142,8 +194,6 @@ class Game
     border2.display();
     border3.display();
     border4.display();
-
-
   }
 
   end()
