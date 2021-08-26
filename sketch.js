@@ -19,8 +19,6 @@ var engine;
 var world;
 
 var form, player, game;
-
-var form, team, game;
 var matterBall;
 
 var border1, border2, border3, border4;
