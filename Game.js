@@ -103,7 +103,7 @@ class Game
 
     if(keyIsDown(UP_ARROW) && player.index !== null)
     {
-      player.velocityY -=0.004;
+      player.velocityY -=0.003;
       player.update();
     }else
     {
@@ -112,7 +112,7 @@ class Game
 
     if(keyIsDown(DOWN_ARROW) && player.index !== null)
     {
-      player.velocityY +=0.004;
+      player.velocityY +=0.003;
       player.update();
     }else
     {
@@ -121,7 +121,7 @@ class Game
 
     if(keyIsDown(LEFT_ARROW) && player.index !== null)
     {
-      player.velocityX -=0.004;
+      player.velocityX -=0.003;
       player.update();
     }else
     {
@@ -130,7 +130,7 @@ class Game
 
     if(keyIsDown(RIGHT_ARROW) && player.index !== null)
     {
-      player.velocityX +=0.004; 
+      player.velocityX +=0.003; 
       player.update();
     }else
     {
@@ -141,7 +141,7 @@ class Game
     upButton.mousePressed(()=>{
       if(player.index !== null)
       {
-        player.velocityY -=0.004;
+        player.velocityY -=0.003;
         player.update();
       }
     });
@@ -149,7 +149,7 @@ class Game
     downButton.mousePressed(()=>{
       if(player.index !== null)
       {
-        player.velocityY +=0.004;
+        player.velocityY +=0.003;
         player.update();
       }
     });
@@ -157,7 +157,7 @@ class Game
     leftButton.mousePressed(()=>{
       if(player.index !== null)
       {
-        player.velocityX -=0.004;
+        player.velocityX -=0.003;
         player.update();
       }
     });
@@ -165,7 +165,7 @@ class Game
     rightButton.mousePressed(()=>{
       if(player.index !== null)
       {
-        player.velocityX +=0.004;
+        player.velocityX +=0.003;
         player.update();
       }
     });
