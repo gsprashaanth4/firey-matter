@@ -64,7 +64,6 @@ class Game
     textSize(30);
     text("Game Start", 120, 100);
     Player.getPlayerInfo();
-    player.getCarsAtEnd();
 
     upButton.show();
     downButton.show();
@@ -76,13 +75,6 @@ class Game
       background("white");
 
       var index = 0;
-
-      //the starting point if the series of the cars......from the line of line of player cars.its the starting point of the series of player cars
-      var x = 200;
-      var y = 200;
-
-      var vx = 0;
-      var vy = 0;
 
       for(var plr in allPlayers)
       {
@@ -111,7 +103,7 @@ class Game
 
     if(keyIsDown(UP_ARROW) && player.index !== null)
     {
-      player.velocityY -=0.001;
+      player.velocityY -=0.004;
       player.update();
     }else
     {
@@ -120,7 +112,7 @@ class Game
 
     if(keyIsDown(DOWN_ARROW) && player.index !== null)
     {
-      player.velocityY +=0.001;
+      player.velocityY +=0.004;
       player.update();
     }else
     {
@@ -129,7 +121,7 @@ class Game
 
     if(keyIsDown(LEFT_ARROW) && player.index !== null)
     {
-      player.velocityX -=0.001;
+      player.velocityX -=0.004;
       player.update();
     }else
     {
@@ -138,7 +130,7 @@ class Game
 
     if(keyIsDown(RIGHT_ARROW) && player.index !== null)
     {
-      player.velocityX +=0.001; 
+      player.velocityX +=0.004; 
       player.update();
     }else
     {
@@ -149,7 +141,7 @@ class Game
     upButton.mousePressed(()=>{
       if(player.index !== null)
       {
-        player.velocityY -=0.001;
+        player.velocityY -=0.004;
         player.update();
       }
     });
@@ -157,7 +149,7 @@ class Game
     downButton.mousePressed(()=>{
       if(player.index !== null)
       {
-        player.velocityY +=0.001;
+        player.velocityY +=0.004;
         player.update();
       }
     });
@@ -165,7 +157,7 @@ class Game
     leftButton.mousePressed(()=>{
       if(player.index !== null)
       {
-        player.velocityX -=0.001;
+        player.velocityX -=0.004;
         player.update();
       }
     });
@@ -173,18 +165,10 @@ class Game
     rightButton.mousePressed(()=>{
       if(player.index !== null)
       {
-        player.velocityX +=0.001;
+        player.velocityX +=0.004;
         player.update();
       }
     });
-    
-
-    if(player.distanceY > 3260)
-    {
-      gameState = 2;
-      player.rank += 1; 
-      Player.updateCarsAtEnd(player.rank);
-    }
     
     drawSprites();
     mBall1.display();
@@ -194,14 +178,6 @@ class Game
     border2.display();
     border3.display();
     border4.display();
-  }
-
-  end()
-  {
-    console.log("game over");
-    text("you've won", 20,20);
-    console.log(player.rank);
-    window.alert("you're rank: " + player.rank);
   }
 
 }
